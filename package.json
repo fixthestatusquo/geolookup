@@ -7,7 +7,7 @@
     "neat-csv": "^5.2.0"
   },
   "devDependencies": {
-    "csv-parser": "^2.3.2",
+    "csv-parser": "^2.3.3",
     "unzipper": "^0.10.11"
   }
 }
