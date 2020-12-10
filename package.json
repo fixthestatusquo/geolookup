@@ -9,5 +9,8 @@
   "devDependencies": {
     "csv-parser": "^2.3.2",
     "unzipper": "^0.10.11"
-  }
+  },
+  "scripts": {
+    "run": "node index.js"
+   }
 }
