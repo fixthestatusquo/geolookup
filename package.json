@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "neat-csv": "^5.2.0"
+    "neat-csv": "^6.0.1"
   },
   "devDependencies": {
-    "csv-parser": "^2.3.2",
+    "csv-parser": "^3.0.0",
     "unzipper": "^0.10.11"
   },
   "scripts": {
