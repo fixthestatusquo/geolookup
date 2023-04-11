@@ -9,9 +9,11 @@ exports.workerify = (iso) => {
   const template = './wrangler/template.js';
   const worker = './wrangler/index.js';
   return new Promise((resolve, reject) => {
-    const data = "const postcodes="+fs.readFileSync(json) +";\n";
+    console.log("using",json);
+    const data = "const postcodes="+fs.readFileSync(json);
     const code = fs.readFileSync(template);
-    fs.writeFileSync(worker,data+code);
+//    const r= fs.writeFileSync(worker,data.replace(/(\r\n|\n|\r)/gm, "") +";\n"+code);
+    const r= fs.writeFileSync(worker,data +";\n"+code);
     
   });
 //  .pipe(json)

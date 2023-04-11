@@ -13,12 +13,12 @@ const run = async (country) => {
   r = await geoname.unzip(country);
   console.log("unzip", r);
   r = await csv.jsonify(country);
-  console.log("jsonify", r);
+ console.log("jsonify", r);
   console.log(
     "todo: node src/workerify.js " +
       country +
-      ";cd wrangler;wrangler publish -e " +
-      country
+      ";cd wrangler;npx wrangler publish -e " +
+      country.toLowerCase()
   );
 };
 
