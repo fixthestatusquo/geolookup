@@ -13,5 +13,8 @@ mv data/DE.txt data/DE.postalcode.txt
 q 'select p.*, c.c1 from data/DE.postalcode.txt p left join data/DE.constituencies.txt c on c.c2=p.c2' -t   --as-text > data/DE.txt
 
 $node src/jsonify.js DE
+$node src/workerify.js DE
+$cd wrangler
+$yarn wrangler -e de
 
 https://workflow.proca.app/workflow/43
