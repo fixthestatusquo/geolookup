@@ -5,7 +5,8 @@ It does download the list of data from the wonderful geonames site and build an 
 ## the german case
 bit of voodoo to add the constituency in germany
 
-q ' select `﻿Wahlkreis-Nr` as constituency, `PLZ-GemVerwaltung` as postcode from  20200415_btw21_wkr_gemeinden_utf8.csv group by postcode' -d\; -H -O --as-text | sed -e 's/,/\t/g' > data/DE.constituencies.txt
+#q ' select `﻿Wahlkreis-Nr` as constituency, `PLZ-GemVerwaltung` as postcode from  20200415_btw21_wkr_gemeinden_utf8.csv group by postcode' -d\; -H -O --as-text | sed -e 's/,/\t/g' > data/DE.constituencies.txt
+#cat data/postcode_constituency.csv | sed -e 's/,/\t/g' > data/DE.constituencies.txt
 
 #q 'select c4 as constituency, c6 as postcode, c5 as name from data/BTW20214Q2020.csv where postcode is not "" group by postcode' -O -d,  --as-text | sed -e 's/,/\t/g' > data/DE.constituencies.txt
 
@@ -16,5 +17,16 @@ $node src/jsonify.js DE
 $node src/workerify.js DE
 $cd wrangler
 $yarn wrangler -e de
+
+## the french case
+
+wget https://www.nosdeputes.fr/deputes/enmandat/json
+
+https://raw.githubusercontent.com/regardscitoyens/nosdeputes.fr/master/batch/depute/static/circo_insee_2012.csv
+
+adding the constituency code
+
+    $q 'select circonscription as constituency, codes_postaux as postcode from data/eucircos_regions_departements_circonscriptions_communes_gps.csv group by circonscription, codes_postaux' -d\; -H -O | sed -e 's/;/\t/g' > data/FR.constituencies.txt
+
 
 https://workflow.proca.app/workflow/43
