@@ -24,9 +24,8 @@ wget https://www.nosdeputes.fr/deputes/enmandat/json
 
 https://raw.githubusercontent.com/regardscitoyens/nosdeputes.fr/master/batch/depute/static/circo_insee_2012.csv
 
-adding the constituency code
-
-    $q 'select circonscription as constituency, codes_postaux as postcode from data/eucircos_regions_departements_circonscriptions_communes_gps.csv group by circonscription, codes_postaux' -d\; -H -O | sed -e 's/;/\t/g' > data/FR.constituencies.txt
-
+$node src/fr.jsonify.js 
+$node src/workerify.js FR
+$cd wrangler;yarn wrangler -e fr
 
 https://workflow.proca.app/workflow/43
